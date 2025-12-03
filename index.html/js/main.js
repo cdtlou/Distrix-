@@ -49,6 +49,27 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.mobile-controls').classList.remove('active');
     }
 
+    // ============ DÉSACTIVER LE DÉFILEMENT SUR LA PAGE JEU ============
+    // Empêcher le scroll avec la molette, les touches clavier et le tactile
+    const disableGamePageScroll = (e) => {
+        const gamePage = document.getElementById('gamePage');
+        if (gamePage && gamePage.classList.contains('active')) {
+            // Empêcher les touches de défilement (Space, Page Down, Page Up, arrows)
+            const scrollKeys = [' ', 'PageDown', 'PageUp', 'ArrowUp', 'ArrowDown', 'Home', 'End'];
+            if (scrollKeys.includes(e.key)) {
+                e.preventDefault();
+            }
+            // Empêcher la molette de souris
+            if (e.type === 'wheel') {
+                e.preventDefault();
+            }
+        }
+    };
+
+    document.addEventListener('wheel', disableGamePageScroll, { passive: false });
+    document.addEventListener('keydown', disableGamePageScroll, { passive: false });
+    document.addEventListener('touchmove', disableGamePageScroll, { passive: false });
+
     console.log('🎮 District - Tetris Game initialized');
     console.log(`📊 Comptes en mémoire: ${Object.keys(accountSystem.accounts).length}`);
 });
