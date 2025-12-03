@@ -641,12 +641,12 @@ body {
 }
 
 .control-btn {
-    padding: 20px;
+    padding: 14px 16px;
     background: #667eea;
     border: none;
     border-radius: 8px;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -831,38 +831,22 @@ body {
 
     /* Agrandir les contrôles tactiles pour les doigts */
     .mobile-controls {
-            display: none;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-top: 15px;
-        }
-        /* Make mobile controls a fixed bottom bar for easier access */
-        .mobile-controls {
-            position: fixed;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 24px);
-            max-width: 640px;
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
-            padding: 6px;
-            z-index: 9999;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.45);
-            background: rgba(10,14,39,0.7);
-            border-radius: 14px;
-            backdrop-filter: blur(6px);
-            touch-action: manipulation;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin: 12px auto 0 auto;
+        justify-items: center;
+        max-width: 320px;
+        width: 100%;
     }
 
     .control-btn {
-        padding: 32px;
-        font-size: 32px;
-        border-radius: 12px;
-        min-width: 80px;
-        min-height: 80px;
-        box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        padding: 18px 12px;
+        font-size: 22px;
+        border-radius: 10px;
+        min-width: 64px;
+        min-height: 64px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
 
     .control-btn:active {
@@ -958,28 +942,11 @@ body {
     }
 
     .mobile-controls.active {
-            /* keep fixed bottom layout when active */
-            display: grid;
-            width: calc(100% - 24px);
-            max-width: 640px;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
-        }
-        /* ensure active mobile-controls stays fixed at bottom */
-        .mobile-controls.active {
-            display: grid;
-            width: 100%;
-            max-width: 280px;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            position: fixed;
-            bottom: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999;
-            background: rgba(10,14,39,0.7);
-            border-radius: 12px;
-            padding: 6px;
+        display: grid;
+        width: 100%;
+        max-width: 280px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
     }
 
     .control-btn {

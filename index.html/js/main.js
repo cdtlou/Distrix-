@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Afficher les contrôles mobiles si petit écran au démarrage
     if (window.innerWidth < 768) {
-        const mcInit = document.querySelector('.mobile-controls');
-        if (mcInit) mcInit.classList.add('active');
+        document.querySelector('.mobile-controls').classList.remove('active');
     }
 
     console.log('🎮 District - Tetris Game initialized');
