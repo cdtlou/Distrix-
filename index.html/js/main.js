@@ -1,31 +1,5 @@
 // ============ INITIALISATION PRINCIPALE ============
-
-// ============ SYSTÈME DE VERSIONING AUTOMATIQUE ============
-function initializeVersionSystem() {
-    // Récupérer ou initialiser la version depuis localStorage
-    let version = parseFloat(localStorage.getItem('appVersion') || '0.000');
-    
-    // Incrémenter de 0.001 à chaque chargement
-    version += 0.001;
-    version = parseFloat(version.toFixed(3)); // Limiter à 3 décimales
-    
-    // Sauvegarder la nouvelle version
-    localStorage.setItem('appVersion', version.toString());
-    
-    // Afficher la version à côté de "Paramètres" sur le lobby
-    const settingsBtn = document.getElementById('settingsBtn');
-    if (settingsBtn) {
-        settingsBtn.innerHTML = `⚙️ Paramètres<br><span style="font-size: 12px; opacity: 0.8;">mise à jour ${version.toFixed(3)}</span>`;
-    }
-    
-    console.log(`🔄 Version: ${version.toFixed(3)}`);
-    return version;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialiser le système de versioning en premier
-    initializeVersionSystem();
-    
     // VÉRIFICATION DE SAUVEGARDES
     // Si les comptes principaux sont vides, essayer de récupérer depuis le backup
     if (Object.keys(accountSystem.accounts).length === 0) {
